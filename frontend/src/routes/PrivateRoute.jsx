@@ -1,6 +1,10 @@
 // Route guard — redirects unauthenticated users to the login page.
-function PrivateRoute(props) {
-  return null;
+import { Navigate, Outlet } from "react-router-dom";
+import useAuth from "../hooks/useAuth.js";
+
+function PrivateRoute() {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
 }
 
 export default PrivateRoute;

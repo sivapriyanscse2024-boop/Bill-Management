@@ -1,6 +1,8 @@
 // Layout wrapper for employee-role pages, extends MainLayout.
-function EmployeeLayout(props) {
-  return null;
+import MainLayout from "./MainLayout.jsx";
+
+function EmployeeLayout() {
+  return <MainLayout />;
 }
 
 export default EmployeeLayout;

@@ -1,4 +1,13 @@
 // Hook exposing the current auth state/actions from AuthContext.
-function useAuth() {}
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext.jsx";
+
+function useAuth() {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+}
 
 export default useAuth;

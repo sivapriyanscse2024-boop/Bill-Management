@@ -90,8 +90,8 @@ function Register() {
           autoComplete="email"
         />
 
-        <div className="flex flex-col gap-1">
-          <label htmlFor="role" className="text-sm font-medium text-slate-700">
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor="role" className="text-[11px] font-medium uppercase tracking-wide text-white/40">
             Role
           </label>
           <select
@@ -99,18 +99,20 @@ function Register() {
             name="role"
             value={form.role}
             onChange={handleChange}
-            className={`w-full rounded-md border px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${
-              errors.role ? "border-red-400" : "border-slate-300 hover:border-slate-400"
+            className={`w-full rounded-xl border bg-white/[0.06] px-4 py-2.5 text-sm text-white outline-none transition focus:bg-white/[0.09] ${
+              errors.role ? "border-red-400/60" : "border-white/5 hover:border-white/10 focus:border-white/20"
             }`}
           >
-            <option value="">Select a role</option>
+            <option value="" className="bg-[#141417] text-white">
+              Select a role
+            </option>
             {ROLE_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
+              <option key={option.value} value={option.value} className="bg-[#141417] text-white">
                 {option.label}
               </option>
             ))}
           </select>
-          {errors.role && <span className="text-xs text-red-500">{errors.role}</span>}
+          {errors.role && <span className="text-xs text-red-400">{errors.role}</span>}
         </div>
 
         <div className="grid grid-cols-2 gap-4">
@@ -158,15 +160,15 @@ function Register() {
           autoComplete="new-password"
         />
 
-        {serverError && <p className="text-sm text-red-500">{serverError}</p>}
+        {serverError && <p className="text-sm text-red-400">{serverError}</p>}
 
         <Button type="submit" loading={loading}>
           Create account
         </Button>
 
-        <p className="text-center text-sm text-slate-600">
+        <p className="text-center text-sm text-white/40">
           Already have an account?{" "}
-          <Link to="/login" className="font-medium text-blue-600 hover:underline">
+          <Link to="/login" className="font-medium text-white hover:underline">
             Log in
           </Link>
         </p>
